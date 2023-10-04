@@ -16,5 +16,4 @@ jobs:
       run: |
         echo "Value of V1 is $V1"
         echo "Value of V2 is $V2"
-        echo "Value of V2 is $REPOVARIABLE1"
-        echo "Value of V2 is $SECRET1"
+        echo "Value of V2 is ${{ vars.REPOVARIABLE1 }}"
