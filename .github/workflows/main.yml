@@ -1,9 +1,7 @@
 name: Variables Demo
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch
 env:
   DAY_OF_WEEK: Monday
 
