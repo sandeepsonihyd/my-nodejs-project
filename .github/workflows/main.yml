@@ -18,8 +18,8 @@ jobs:
         echo "Value of V2 is $V2"
         echo "Value of V2 is ${{ vars.REPOVARIABLE1 }}"
     
-    - name: "Say Hello Mona it's Monday"
-      if: ${{ env.DAY_OF_WEEK == 'Monday' }}
+    - name: "Say Hello Mona it's Wednesday"
+      if: ${{ env.DAY_OF_WEEK == 'Wednesday' }}
       run: echo "${{ env.Greeting }} ${{ env.First_Name }}. Today is ${{ env.DAY_OF_WEEK }}!"
       env:
         First_Name: Sandeep 
