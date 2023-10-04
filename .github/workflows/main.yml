@@ -14,5 +14,5 @@ jobs:
     steps:
     - name: Print value of Variable
       run: |
-        echo "Value of V1 is {{V1}}
-        echo "Value of V2 is {{V2}}
+        echo "Value of V1 is ${{V1}}
+        echo "Value of V2 is ${{V2}}
