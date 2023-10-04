@@ -4,22 +4,22 @@ on:
   push:
     branches:
       - main
+env:
+  DAY_OF_WEEK: Monday
 
 jobs:
   example-job:
     runs-on: ubuntu-latest
     env:
-      V1: Value1
-      V2: Value2    
+      Greeting: Hello
     steps:
     - name: Print value of Variable
       run: |
-        echo "Value of V1 is $V1"
-        echo "Value of V2 is $V2"
-        echo "Value of V2 is ${{ vars.REPOVARIABLE1 }}"
+        echo "Value of Greeting is $Greeting"
+        echo "Value of Repo Variable is ${{ vars.REPOVARIABLE1 }}"
     
-    - name: "Say Hello Mona it's Wednesday"
-      if: ${{ env.DAY_OF_WEEK == 'Wednesday' }}
+    - name: "Say Hello it's Monday"
+      if: ${{ env.DAY_OF_WEEK == 'Monday' }}
       run: echo "${{ env.Greeting }} ${{ env.First_Name }}. Today is ${{ env.DAY_OF_WEEK }}!"
       env:
         First_Name: Sandeep 
