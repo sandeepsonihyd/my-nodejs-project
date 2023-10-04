@@ -15,10 +15,11 @@ jobs:
     steps:
     - name: Print value of Variable
       run: |
-        echo "Value of Greeting is $Greeting"
-        echo "Value of Repo Variable is ${{ vars.REPOVARIABLE1 }}"
+        echo "Value of Greeting is: ${{ vars.Greeting }}"
+        echo "Value of Greeting is: $Greeting"
+        echo "Value of Repo Variable is: ${{ vars.REPOVARIABLE1 }}"
     
-    - name: "Say Hello it's Monday"
+    - name: "Say Hello, it's Monday"
       if: ${{ env.DAY_OF_WEEK == 'Monday' }}
       run: echo "${{ env.Greeting }} ${{ env.First_Name }}. Today is ${{ env.DAY_OF_WEEK }}!"
       env:
