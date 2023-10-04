@@ -6,25 +6,13 @@ on:
       - main
 
 jobs:
-  build:
+  example-job:
     runs-on: ubuntu-latest
-
+    env:
+      V1: Value1
+      V2: Value2    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-
-    - name: npm install, build, and test
+    - name: Print value of Variable
       run: |
-        npm install
-        npm run build --if-present
-
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v3
-      with:
-        name: node-app
-        path: .
+        echo "Value of V1 is {{V1}}
+        echo "Value of V2 is {{V2}}
