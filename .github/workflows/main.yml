@@ -1,4 +1,4 @@
-name: Variables Demo
+name: Variables Demo1
 
 on:
   workflow_dispatch
