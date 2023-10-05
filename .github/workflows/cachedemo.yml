@@ -6,16 +6,17 @@ jobs:
   container-job:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # Docker Hub image that `container-job` executes in
-    container: node:16-bullseye
     # Service containers to run with `container-job`
     services:
       # Label used to access the service container
       nginx:
         # Docker Hub image
         image: nginx
-
+        ports:
+          # Opens tcp port 6379 on the host and service container
+          - 8080:80
+          
     steps:
       - shell: bash
         run: |
-          curl http://nginx
+          curl http://localhost:8080
