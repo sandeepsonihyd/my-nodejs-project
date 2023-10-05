@@ -10,7 +10,7 @@ jobs:
     steps:
       - shell: bash
         run: |
-          echo ${{ env.CONNECTIONSTRING }}
+          echo ${{ vars.CONNECTIONSTRING }}
 
   ProdDeployment:
     name: ProdDeployment
@@ -19,4 +19,4 @@ jobs:
     steps:
       - shell: bash
         run: |
-          echo ${{ env.CONNECTIONSTRING }}
+          echo ${{ vars.CONNECTIONSTRING }}
