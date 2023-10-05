@@ -3,30 +3,20 @@ name: Share data between jobs
 on: workflow_dispatch
 
 jobs:
-  job_1:
-    name: Add 3 and 7
+  DevDeployment:
+    name: DevDeployment
     runs-on: ubuntu-latest
+    environment: Development
     steps:
       - shell: bash
         run: |
-          expr 3 + 7 > math-homework.txt
-      - name: Upload math result for job 1
-        uses: actions/upload-artifact@v3
-        with:
-          name: homework
-          path: math-homework.txt
+          echo ${{ env.ConnectionString }}
 
-  job_2:
-    name: Download and Display Result
-    needs: job_1
-    runs-on: windows-latest
+  ProdDeployment:
+    name: ProdDeployment
+    runs-on: ubuntu-latest
+    environment: Production
     steps:
-      - name: Download math result for job 1
-        uses: actions/download-artifact@v3
-        with:
-          name: homework
-      - name: Print the result
-        shell: bash
+      - shell: bash
         run: |
-          value=`cat math-homework.txt`
-          echo The result is $value
+          echo ${{ env.ConnectionString }}
